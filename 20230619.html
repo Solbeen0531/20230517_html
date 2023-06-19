@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20230619</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <form>gui없음. 이동할페이지에 전달하고자 하는 데이터묶음 처리
+        자식 태그로 input 또는 select 같은 태그가 있어야 함
+    </form>
+    <form>
+        <input type="text">
+    </form>
+    <hr>
+
+    시맨틱 태그
+
+
+
+    <br><hr><img><input> 닫히지 않는 태그
+
+    <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XMipmINnMwI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XMipmINnMwI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div><iframe src="a.html" width="500" height="500">iframe innertext 안보임</iframe></div>
+
+
+    <div>모든 태그에 id 속성 지정 가능함
+         id 속성값은 페이지 내 unique한 값이 들어가야 함
+    </div>
+    <span id="p3">없는 태그</span>
+    <h7 id="p3">없는 태그</h7>
+    <hr id="p1">
+
+    <img src="./resources/img/02.PNG" 
+        alt="깨진 이미지 대신 나오는 문구">png 닫히는 태그가 없는 태그 
+    <hr>
+
+    <img src="./resources/img/01.jpg" width="50%"> jpg
+    <hr>
+
+    <p>한 단락의 내용을 담음. 패러그래프</p>
+
+    <img src=""> svg는 가로세로 비율 유지하도록 coding되어잇으면 유지됨
+    <hr id="p2">
+
+    <a href="./a.html">InnerText또는 InnerHTML 꼭 작성해야 함</a>
+    <hr>
+
+    <a href="./a.html">InnerHTML<img src="./resources/img/a.svg" width="50"alt="InnerHTML"></a>
+    <hr>
+
+    <a href="./a.html" target="_blank">페이지 내부 이동</a>
+    <hr>
+
+    <a href="./b.html"><img src="./resources/img/a.svg" width="50"alt="냠냠"></a>
+    <hr>
+
+    <a href="#p2">페이지 내부 p2 이동</a>
+    <hr>
+
+    <a href="#p3">페이지 내부 p3 이동</a>
+    <hr>
+
+</body>
+</html>
