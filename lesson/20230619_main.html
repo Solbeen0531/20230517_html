@@ -4,16 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
+    <title>메인페이지</title>
+    <style>
+        /* 주석 */
+        button{
+            background-color: cyan;
+        }
+        [type=button]{
+            background-color: chartreuse;
+        }
+        button[type=button]{
+            background-color: lightskyblue;
+        }
+        /* *{
+            background-color: azure;
+        } */
+        #id_1{
+            background-color: bisque;
+            border: 3px solid brown;
+        }
+        .c_red{
+            color: red;
+        }
+
+        div > form{
+            background-color: yellowgreen;
+        }
+
+        [class$=l]{
+            color: rgb(15, 0, 112);
+        }
+
+        [class~=m]{
+            color: blueviolet;
+        }
+
+        [data-abc],[selected]{
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <div>
-            <img src="./resources/img/01.jpg" width="50%">
-        </div>
-        <div>
+        <div data-abc="테스트용">data abc 테스트용</div>
+        <div><p style="color: blueviolet; background-color: yellowgreen;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p></div>
+        <div class="c_yellow">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="s_m">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</div>
+        <div class="s_1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div> <img src="./resources/img/01.jpg" width="50%"> </div>
+
+        <div id="id_1" class="c_red">
             <form action="./20230619_search_do.html" method="get">
+                <progress value="1" max="10">프로그레스는 사용자 입력은 아니나 data전달목적</progress>
+                <input type="text" list="datalist_id_3" name="optprice">
+                <datalist id="datalist_id_3">
+                    <option value="xs" label="xs추가요금">xs</option>
+                    <option value="s" selected>s</option>
+                    <option value="l" multiple>l</option>
+                </datalist>
+
+                <select name="size" size=1>
+                    <optgroup label="US-Size">
+                        <option value="xs">xs</option>
+                        <option value="s" selected>s</option>
+                        <option value="l" multiple>l</option>
+                    </optgroup>
+                    <optgroup label="EU-Size">
+                        <option value="97">97</option>
+                        <option value="98">98</option>
+                        <option value="99" multiple>99</option>
+                    </optgroup>
+                </select>
+                <input type="email" name="email">
+                <input type="url" name="url" value="http://">
+                <input type="search" name="search">
+                <input type="number" value="5" name="num">
+                <input type="range" value="5" max="10" name="range">
                 <input type="color" name="mycolor"> <!-- mycolor=%23a692526 -->
                 <input type="date" name="mydate"> <!-- mydate=2023-06-21 -->
                 <input type="datetime" name="mydatetime"> <!-- mydatetime=%23a692526 -->
@@ -55,7 +122,7 @@
                     <tbody>
                         <tr>
                             <th><label for="idid">id</label></th>
-                            <td><input type="text" ></td>
+                            <td><input type="text"></td>
                             <td rowspan="2"><button type="button">로그인</button></td>
                         </tr>
                         <tr>

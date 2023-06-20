@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <link href="./resources/css/reset.css" rel="stylesheet">
+    <style>
+        /* CSS 문법 
+        첫 번째 p태그에 bg yellow, 글자 색은 green
+        두 번째 p태그에 bg red, 글자색은 blue
+        세 번째 p태그에 bg gray, 글자색은 red*/
+
+        /* #id1 {
+            background-color: yellow;
+            color: green;
+        } */
+
+        /* p#id1 {
+            background-color: yellow;
+            color: green;
+        } */
+
+        /* p[id=id1] {
+            background-color: yellow;
+            color: green;
+        } */
+
+        /* p:nth-child(1) {
+            background-color: yellow;
+            color: green;
+        } */
+
+        /* p:first-child {
+            background-color: yellow;
+            color: green;
+        } */
+
+        /* p:last-child {
+            background-color: gray;
+            color: black
+        } */
+
+        /* .ca.cc{background: yellow ; color: green;}
+        .ca.cb.cc{background: red; color: yellow;}
+        .cb{background: gray;color: black;} */
+
+        /* .ca{
+            background: yellow;
+        }
+        .cb{
+            color: green;
+        }
+        .cc{
+            font-size: 1.2em;
+        } */
+
+        /* div #id1{background: yellow;color: green;}
+        div #id2{background: red; color: yellow;}
+        div #id3{background: gray; color: black;} */
+
+        /* div .ca.cc{background: yellow ; color: green;}
+        div .ca.cb.cc{background: red; color: yellow;}
+        div .cb{background: gray;color: black;} */
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        
+        <p id="id1" class="ca cc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quod
+            reiciendis alias
+            mollitia. Deserunt sunt quo id totam alias aliquid tenetur quia non quibusdam voluptatibus, dignissimos
+            aspernatur, incidunt veniam.</p>
+        <a>여기</a>
+        <p id="id2" class="ca cb cc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quod
+            reiciendis alias
+            mollitia. Deserunt sunt quo id totam alias aliquid tenetur quia non quibusdam voluptatibus, dignissimos
+            aspernatur, incidunt veniam.</p>
+        <a>여기</a>
+        <p id="id3" class="cb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quod
+            reiciendis alias
+            mollitia. Deserunt sunt quo id totam alias aliquid tenetur quia non quibusdam voluptatibus, dignissimos
+            aspernatur, incidunt veniam.</p>
+    </div>
+</body>
+
+</html>
