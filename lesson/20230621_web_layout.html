@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20230621수</title>
+    <link href="./resources/css/reset.css" rel="stylesheet">
+
+    <style>
+        /* #id1 {
+            display: block; //기본 속성
+            position: static; //기본 속성
+        } */
+
+        div {
+            background: #eee;
+            border: 1px solid black;
+            display: block;
+            position: static;
+            padding: 20px;
+            margin: 100px;
+        }
+
+        #id2 {
+            /* fixed는 자유롭게 배치
+            top.bottom.left.right 함께 사용되어야 함
+            width height 지정도 함께 해야함 */
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 100px;
+            z-index: 999;
+        }
+
+        body {
+            position: relative;
+        }
+
+        #id3 {
+            position: relative;
+            /* 
+            relative의 기능
+            1. 나의 자식/후손 중에 absolute가 있다면
+            absolute 요소의 높이만큼을 height로 지정해줘야 함
+            absolute는 그래서 주로 logo, img 등 고정 크기가 있는 요소들로 지정됨
+            p태그에는 쓰지 않음
+             */
+            height: 500px;
+        }
+
+        #id3>p:first-child {
+            /* absolute는 자유롭게 배치
+            top.bottom.left.right 함께 사용되어야 함
+            width height 지정도 함께 해야함
+            조상 중에 position: relative; 반드시 필요 */
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 100px;
+            background-color: antiquewhite;
+
+        }
+
+        #id3>p:nth-child(2) {
+            position: absolute;
+            top: 10px;
+            left: 150px;
+            width: 100px;
+            background-color: azure;
+        }
+
+        #id3>p.last-child {
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            width: 100px;
+            background-color: beige;
+        }
+
+        #id5 {
+            position: relative;
+            /* relative 기능
+            2. 흐름상 자연스럽게 top. bottom. left. right만큼 띄우고 위치할 수 있음 */
+            top: 10px;
+            left: 20px;
+            width: 80%;
+        }
+
+        #id8 {
+            overflow: hidden;
+            /* overflow:hidden; 의 추가적인 기능
+            나의 자식요소들의 크기를 계산함
+            자식 요소 중 float 지정한 것이 있으면 나의 크기(height) 계산을 하지 않게
+            그때 강제로 자식 요소 (float인 것들까지) 크기를 계산하게 하는 기능 */
+        }
+
+        #id8 p {
+            width: 200px;
+            border: 1px solid blue;
+            float: left;
+        }
+
+        #id9 {
+            width: 200px;
+            border: 1px solid blue;
+        }
+
+        #id9 p:nth-child(2) {
+            /* 이전 형제관계의 요소에서 작성된 float를 해제함 */
+            clear: both;
+        }
+
+        nav > ul li {
+            display: inline-block;
+            padding: 10px 10px;
+        }
+
+        nav > ul li:first-of-type {
+            padding-left: 50px;
+        }
+
+        nav > ul li:last-of-type {
+            padding-right: 50px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: red;
+            color: azure;
+        }
+
+        a:link {
+            color: violet;
+        }
+
+        a:visited {
+            color: yellowgreen;
+        }
+
+        a:active {
+            color: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <a href="#">
+                <li>메뉴1 </li>
+            </a>
+            <li>| </li>
+            <li>메뉴2</li>
+            <li>|</li>
+            <li>메뉴3
+            </li>
+        </ul>
+    </nav>
+
+    <div id="id1">
+        <p>id1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id1-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit animi debitis ipsa nisi tempora est
+            reprehenderit sapiente. Quo, temporibus minus dolorum officia illum fugit modi ullam aperiam expedita
+            facilis ipsam.</p>
+    </div>
+    <div id="id2">
+        <p>id2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id3">
+        <p>id3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id3-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit animi debitis ipsa nisi tempora est
+            reprehenderit sapiente. Quo, temporibus minus dolorum officia illum fugit modi ullam aperiam expedita
+            facilis ipsam.</p>
+        <p>id3-5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit animi debitis ipsa nisi tempora est
+            reprehenderit sapiente. Quo, temporibus minus dolorum officia illum fugit modi ullam aperiam expedita
+            facilis ipsam.</p>
+    </div>
+    <div id="id4">
+        <p>id4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id5">
+        <p>id5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id6">
+        <p>id6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id7">
+        <p>id7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id8">
+        <p>id8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id8-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id8-3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id8-4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+    <div id="id9">
+        <p>id9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id9-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id9-3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+        <p>id9-4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iure qui sint, eius sed
+            dignissimos
+            temporibus eum quidem, dolorem odio quae optio voluptatum aspernatur tenetur, iste officiis maiores
+            laudantium itaque.</p>
+    </div>
+
+</body>
+
+</html>

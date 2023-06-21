@@ -6,7 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선택자</title>
     <link href="./resources/css/reset.css" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"> -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+        @font-face {
+            font-family: 'Ostrich';
+            src: local('Ostrich Sans'),
+                url('resources/font/ostrich-sans-bold.ttf') format('truetype'),
+                url('resources/font/ostrich-sans-bold.woff') format('woff'),
+                url('resources/font/ostrich-sans-bold.svg') format('svg');
+        }
+
+        div {
+            /* font-family: 'Ostrich', 'Diphylleia', Courier, monospace;
+            font-style: oblique;
+            font-size: 28pt;
+            font-weight: 100;
+            font-variant: small-caps; */
+
+            font: 28pt 'Ostrich', 'Diphylleia', Courier, monospace;
+            line-height: 50px;
+            text-shadow: #ddd 5 5 10px;
+        }
+
         /* CSS 문법 
         첫 번째 p태그에 bg yellow, 글자 색은 green
         두 번째 p태그에 bg red, 글자색은 blue
@@ -64,13 +90,66 @@
         div .ca.cb.cc{background: red; color: yellow;}
         div .cb{background: gray;color: black;} */
 
+        /* p.ca.cc{background: yellow; color: green;}
+        p.ca.cb.cc{background: red; color: yellow;}
+        p.cb{background: gray; color: black;} */
 
+
+
+        p.ca.cc {
+
+            /* border-width: 5px;
+            border-color: black;
+            border-style: solid; */
+            /* border: 5px solid black; */
+
+            /* border-top: 5px solid black;
+            border-right: 2px dashed green;
+            border-bottom: 5px solid red; 
+            border-left: 6px dotted blue; */
+
+            /* border-width: 5px 10px 5px 2px;
+            border-color: black red green violet;
+            border-style: dashed solid dotted none; */
+            /* border-width: 5px 10px ;
+            border-color: black violet;
+            border-style: dashed solid; */
+            border-width: 5px 10px;
+            border-color: black violet;
+            border-style: dashed solid;
+            border-radius: 10px 24px 30px 60px;
+            box-shadow: #f45612 0 0 50px, #cfa 0 0 10px inset;
+
+            display: inline-block;
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(121, 121, 6, .3);
+            color: green;
+        }
+
+        p.ca.cb.cc {
+            background: hsl(360, 100%, 80%);
+            color: yellow;
+        }
+
+        p.cb {
+            background: gray;
+            color: black;
+        }
     </style>
 </head>
 
 <body>
     <div>
-        
+        <pre>
+            여기
+            그대로
+                표현
+        </pre>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi optio eius dolores ratione similique
+            earum autem? Necessitatibus cum possimus doloribus natus non ipsam, minus aperiam ratione explicabo, dolor
+            eveniet? Sunt!</p>
         <p id="id1" class="ca cc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quod
             reiciendis alias
             mollitia. Deserunt sunt quo id totam alias aliquid tenetur quia non quibusdam voluptatibus, dignissimos
