@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매머드 오레오초코 맛잇다</title>
+    <title>webpage</title>
     <!-- [1] 해상도 - 최적 해상도 1250 결정(최대/최소 마지막 점검) -->
     <!-- [2] content 영역 1040 80vw 90% 배치(중앙, 왼쪽 정렬) -->
     <!-- [3] reset.css 폴더경로 -->
@@ -16,77 +16,360 @@
     <!-- [4] button 3개 class 미리 만들어두기 -->
     <!-- [4] a 모양 미리 만들어두기 -->
 
-    <!-- [5] Layout 영역 -->
-
+    <!-- [5] body Layout 영역 -->
     <style>
-        .wrap {
-            border: 1px solid black;
-            box-sizing: border-box;
-        }
+        
+            /* 영역 4가지
+            content, padding, border, margin */
+
+      
+
         .wrap.header {
             background: bisque;
-            
+
         }
+
         .wrap.content {
             background: beige;
         }
+
         .wrap.footer {
             background: bisque;
         }
-        header, #content, footer {
+
+        header,
+        #content,
+        footer {
+            box-sizing: border-box;
+
             /* 중앙 정렬 */
-            width: 80vw; margin: 0 auto;
+            width: 600px;
+            margin: 0 auto;
+
+            /* padding */
+            padding: 5px;
+
+            border: 1px solid black;
         }
+
         #content {
+            /* 2. float 배치 - 한 것으로 height 계산 못하므로... */
             overflow: hidden;
         }
 
         /* section */
         section {
-            width: 80%;
+            width: 394px;
             float: left;
         }
 
         /* aside */
         aside {
-            width: 20%;
+            /* 2. float 배치 */
+            width: 194px;
             float: right;
         }
 
+        article {
+            padding: 5px;
+            border: 1px solid black;
+            margin: 10px 10px 10px 0;
+        }
     </style>
+    <!-- header 영역 style -->
+    <style>
+        header ul {
+            overflow: hidden;
+        }
+
+        header ul>li {
+            float: left;
+        }
+
+        header {
+            /* 조상 (relative) 기준위치 설정*/
+            position: relative;
+            height: 90px;
+        }
+
+        header>.logo {
+            /* 4. 조상의 (relative) 기준위치로부터 절대위치 잡기 */
+            position: absolute;
+            top: 20px;
+            left: 0;
+        }
+
+        header>.top-menu {
+            /* 4. 조상의 (relative) 기준위치로부터 절대위치 잡기 */
+            position: absolute;
+            top: 0;
+            right: 5px;
+        }
+
+        header>.main-menu {
+            /* 4. 조상의 (relative) 기준위치로부터 절대위치 잡기 */
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+        }
+    </style>
+
+    <!-- aside 영역 style -->
+    <style>
+        aside {
+            margin-top: 10px;
+        }
+
+        aside input[type=radio] {
+            /* != visibility: none; 공간을 차지 하면서 안보이게 함 */
+            /* 공간을 차지 하지 않고 radio 버튼을 안보이게 함 */
+            display: none;
+        }
+
+        .iems .tab-item {
+            display: none;
+        }
+
+        aside input[type=radio]:nth-of-type(1):checked~.items .tab-item:nth-of-type(1) {
+            /* + 기호는 바로 밑의 동생
+            ~ 기호는 자손 */
+            display: block;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.items .tab-item:nth-of-type(2) {
+            display: block;
+        }
+
+        aside .labels {
+            overflow: hidden;
+        }
+
+        aside .labels>label {
+            width: 50%;
+            display: block;
+            float: left;
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        aside input[type=radio]:nth-of-type(1):checked~.labels label:nth-of-type(1) {
+            background-color: white;
+            color: black;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.labels label:nth-of-type(2) {
+            background-color: white;
+            color: black;
+        }
+
+        aside .items li {
+            /* border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black; */
+            /* border: 1px solid black;
+            border-top: 0; */
+            border-bottom: black;
+            border-style: solid;
+            border-width: 0 1px 1px 1px;
+            padding: 5px;
+        }
+
+        aside .items li {
+            overflow: hidden;
+        }
+
+        aside .items li div {
+            float: left;
+        }
+
+        aside .items li .descript p {
+            /* 말줄임 -1 속성 start */
+            text-decoration: ellipsis;
+            white-space: nowrap;
+            width: 120;
+            overflow: hidden;
+            /* 말줄임 -1 속성 end */
+        }
+        aside .items li .thumnail {
+            margin-right: 5px;
+        }
+    </style>
+    <!-- footer 영역 style -->
+    <style> </style>
+    <!-- section / article 영역 style -->
+    <style></style>
+
 </head>
 
 <body>
-    <div id="wrap-header">
+    <div id="wrap header">
         <header>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex? Debitis
-                distinctio minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+            <div class="logo">
+                <img src="https://dummyimage.com/50x50/e3c6e3/000000.jpg&text=kh" width="50px" height="50px">
+            </div>
+            <div class="top-menu">
+                <ul>
+                    <li>상단메뉴1</li>
+                    <li>상단메뉴1</li>
+                    <li>상단메뉴1</li>
+                </ul>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li>메뉴1</li>
+                    <li>메뉴1</li>
+                    <li>메뉴1</li>
+                </ul>
+            </div>
+
+
+
         </header>
     </div>
-    <div id="wrap-content">
+    <div id="wrap content">
         <div id="content">
 
             <section>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
-                    Debitis
-                    distinctio
-                    minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                <article>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
+                        Debitis
+                        distinctio
+                        minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                </article>
+                <article>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
+                        Debitis
+                        distinctio
+                        minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                </article>
+                <article>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
+                        Debitis
+                        distinctio
+                        minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                </article>
+                <article>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
+                        Debitis
+                        distinctio
+                        minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                </article>
+                <article>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
+                        Debitis
+                        distinctio
+                        minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                </article>
             </section>
             <aside>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex?
-                    Debitis
-                    distinctio
-                    minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
+                <!-- 
+    <input type="button" value="a" onclick="a()">
+<input type="button" value="b"> 
+-->
+
+                <input type="radio" name="tab" id="first" checked>
+                <input type="radio" name="tab" id="second">
+
+                <div class="labels">
+                    <label for="first" id="test1">First</label>
+                    <label for="second" id="test2">Second</label>
+                </div>
+                <div class="items">
+                    <div class="tab-item">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <img src="https://dummyimage.com/45/e3c6e3.jpg">
+                                    </div>
+                                    <div>
+                                        <p>html 5 semantic</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <img src="https://dummyimage.com/45/e3c6e3.jpg">
+                                    </div>
+                                    <div>
+                                        <p>html 5 canvas</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <img src="https://dummyimage.com/45/e3c6e3.jpg">
+                                    </div>
+                                    <div>
+                                        <p>html 5 semanctics web</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <img src="https://dummyimage.com/45/e3c6e3.jpg">
+                                    </div>
+                                    <div>
+                                        <p>html 5 audio</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <img src="https://dummyimage.com/45/e3c6e3.jpg">
+                                    </div>
+                                    <div>
+                                        <p>html 5 video</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>html</li>
+                            <li>css</li>
+                            <li>javaScript</li>
+                            <li>jQuery</li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li>semantic</li>
+                            <li>transition</li>
+                            <li>...</li>
+                            <li>...2</li>
+                        </ul>
+                    </div>
+                </div>
             </aside>
         </div>
     </div>
-    <div id="wrap-footer">
+    <div id="wrap footer">
         <footer>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam debitis sint eaque ex? Debitis
                 distinctio
                 minus facilis officia aperiam, eos id amet provident animi ea eius minima quas numquam.</p>
         </footer>
     </div>
+    <script>
+        var a1 = document.getElementsById("test1").innerText;
+        alert(a1);
+        document.getElementsById("test1").innerText = "바꿈";
+        document.getElementsById("test1").innerText = "<b>바!꿈!</b>";
+    </script>
 </body>
 
 </html>
