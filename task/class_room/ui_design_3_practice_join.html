@@ -11,7 +11,7 @@
 
     <form>
 
-        <ul>
+        <ul slot="">
             <li>
                 회원 여부:
                 <input checked type="radio" name="member" value="mem_yes" id="mem_yes"><label for="mem_yes">회원</label>
@@ -28,7 +28,27 @@
 
             <li>
                 직업 :
+                <select name="job" size=4>
+                    <option value="student" selected>학생</option>
+                    <option value="worker">회사원</option>
+                    <option value="teacher">교사</option>
+                    <option value="business">자영업</option>
+                    <option value="etc">기타</option>
+                </select>
+            </li>
+
+            <li>
+                남기고 싶은 말 : <br>
+                <textarea cols="70" rows="5" placeholder="150자 내외로 글을 남겨주세요."></textarea>
+            </li>
+
+            <li>
                 
+                <form action="ui_design_3_practice_result.html" method="get">
+                    <input type="button" value="초기화"> 
+                    <button type="submit">전송</button>    
+                </form>
+                어라 이상하게 페이지 
             </li>
         </ul>
 
