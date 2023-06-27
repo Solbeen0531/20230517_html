@@ -5,55 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task_3_join</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body>
-
     <form>
+        <fieldset>
+            <ul>
+                <li>
+                    회원 여부:
+                    <input checked type="radio" name="member" value="mem_yes" id="mem_yes"><label
+                        for="mem_yes">회원</label>
+                    <input type="radio" name="member" value="mem_no" id="mem_no"><label for="mem_no">비회원</label>
+                </li>
 
-        <ul slot="">
-            <li>
-                회원 여부:
-                <input checked type="radio" name="member" value="mem_yes" id="mem_yes"><label for="mem_yes">회원</label>
-                <input type="radio" name="member" value="mem_no" id="mem_no"><label for="mem_no">비회원</label>
-            </li>
+                <li>
+                    취미(중복선택) :
+                    <input type="checkbox" name="hobby" id="hob_read"><label for="hob_read">독서</label>
+                    <input type="checkbox" name="hobby" id="hob_movie"><label for="hob_movie">영화</label>
+                    <input type="checkbox" name="hobby" id="hob_music"><label for="hob_music">음악</label>
+                    <input type="checkbox" name="hobby" id="hob_sports"><label for="hob_sports">스포츠</label>
+                </li>
 
-            <li>
-                취미(중복선택) :
-                <input type="checkbox" name="hobby" id="hob_read"><label for="hob_read">독서</label>
-                <input type="checkbox" name="hobby" id="hob_movie"><label for="hob_movie">영화</label>
-                <input type="checkbox" name="hobby" id="hob_music"><label for="hob_music">음악</label>
-                <input type="checkbox" name="hobby" id="hob_sports"><label for="hob_sports">스포츠</label>
-            </li>
+                <li>
+                    직업 :
+                    <select name="job" size=4>
+                        <option value="student" selected>학생</option>
+                        <option value="worker">회사원</option>
+                        <option value="teacher">교사</option>
+                        <option value="business">자영업</option>
+                        <option value="etc">기타</option>
+                    </select>
+                </li>
 
-            <li>
-                직업 :
-                <select name="job" size=4>
-                    <option value="student" selected>학생</option>
-                    <option value="worker">회사원</option>
-                    <option value="teacher">교사</option>
-                    <option value="business">자영업</option>
-                    <option value="etc">기타</option>
-                </select>
-            </li>
+                <li>
+                    남기고 싶은 말 : <br>
+                    <textarea cols="70" rows="5" placeholder="150자 내외로 글을 남겨주세요."></textarea>
+                </li>
 
-            <li>
-                남기고 싶은 말 : <br>
-                <textarea cols="70" rows="5" placeholder="150자 내외로 글을 남겨주세요."></textarea>
-            </li>
+                <li>
 
-            <li>
-                
-                <form action="ui_design_3_practice_result.html" method="get">
-                    <input type="button" value="초기화"> 
-                    <button type="submit">전송</button>    
-                </form>
-                어라 이상하게 페이지 
-            </li>
-        </ul>
-
+                    <section>
+                        <input type="button" value="초기화">
+                        <form action="ui_design_3_practice_result.html" method="get">
+                            <input type="button" value="전송">
+                        </form>
+                    </section>
+                </li>
+            </ul>
+        </fieldset>
     </form>
-
+전송되지 않음
 </body>
 
 </html>
