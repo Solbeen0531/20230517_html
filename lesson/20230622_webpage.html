@@ -534,6 +534,8 @@ min-width 사용시 작은px 먼저 .. 큰px 작성
                         $("#btnAddContent").on("click", function () {
                             var htmlVal = '<div class="flex_wrap"></div>';
                             $("#dom_div").append(htmlVal);
+                            // $(".flex_wrap:last-type-of").before(htmlVal);
+
                             addDiv5();
                             //$(this).prev().append(htmlVal);
                             // 2군데 $(".flex_wrap").append(htmlVal);
