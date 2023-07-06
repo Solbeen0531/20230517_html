@@ -16,7 +16,7 @@
             background-color: #ededed;
             border: 1px solid #d0d6dc;
             width: 400px;
-            height: 300px;
+            height: 350px;
             vertical-align: middle;
           
             margin: 20px;
@@ -55,15 +55,15 @@
             <table id="tableA">
                 <tr>
                     <th>아이디</th>
-                    <td colspan="3"><input type="text" name="jid" class="underline"></td>
+                    <td colspan="2"><input type="text" name="jid" class="underline"></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td style="font-size: x-small;" class="help">필수 입력 항목 입니다</td>
+                    <td style="font-size: x-small;" id="id-help" class="help">필수 입력 항목 입니다</td>
                 </tr>
                 <tr>
                     <th>패스워드</th>
-                    <td><input type="password" name="jpw" class="underline"></td>
+                    <td colspan="2"><input type="password" name="jpw" class="underline"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td style="font-size: x-small;"class="help">필수 입력 항목 입니다</td>
+                    <td style="font-size: x-small;"id="pw-help" class="help">필수 입력 항목 입니다</td>
                 </tr>
                 <tr>
                     <th>패스워드 확인</th>
@@ -79,7 +79,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td style="font-size: x-small;"class="help">필수 입력 항목 입니다</td>
+                    <td style="font-size: x-small;"id="pw2-help" class="help">필수 입력 항목 입니다</td>
                 </tr>
                 <tr>
                     <th>이메일</th>
@@ -97,23 +97,66 @@
                     <td><p></p></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><input type="submit" value="가입" id="accession"></td>
+                    <td colspan="3"><input type="button" value="가입" id="accession"></td>
                 </tr>
             </table>
         </form>
     </div>
     <script>
-        function validate(){
-            var id = $("[name=jid]").val();
+        // $("#accession [type=button]").click(function(){
 
-            if ((id == "")&&(id.blur())){
-                $(".help").show();
+        //     if ((($("[name=jid]").val()) == "")&&(($("[name=jid]").val()).blur())){
+        //         $("#id-help").prop("disabled", true);
+        //         return;
+        //     }
+        //     if ((($("[name=jpw]").val()) == "")&&(($("[name=jpw]").val()).blur())){
+        //         $("#pw-help").prop("disabled", true);
+        //         return;
+        //     }
+        //     if ((($("[name=jpw2]").val()) == "")&&(($("[name=jpw2]").val()).blur())){
+        //         $("#pw2-help").prop("disabled", true);
+        //         return;
+        //     }
+
+
+        // });
+
+
+
+        $("#frm [type=button]").click(submitHandler);
+        function submitHandler(){
+            var focusId = $(":focus");
+            var id = ($("[name=jid]").val());
+            var pw = $("[name=jpw]").val();
+            var pw2 = $("[name=jpw2]").val();
+            
+
+            if (id.focus() == focusID){
+                if ((id == "")&&(id.blur())){
+                    $("#id-help").prop("disabled", true);
+                   return;
+               }
+               return;
+            }
+            if (pw.focus() == focusID){
+                if ((pw == "")&&(pw.blur())){
+                    $("#pw-help").prop("disabled", true);
+                    return;
+                }
                 return;
             }
-
-
+            if (pw2.focus() == focusID){
+                if ((pw2 == "")&&(pw2.blur())){
+                $("#pw2-help").prop("disabled", true);
+                   return;
+                }
+                return;
+            }
         }
-
+        $("#frm [name=jpw]").click(clickPassword);
+        function clickPassword(){
+            $("#validate").prop("disabled", true);
+        }
 
         // function validate() {
         // var objID = document.getElementById("jid");
