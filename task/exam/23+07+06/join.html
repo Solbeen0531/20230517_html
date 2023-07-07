@@ -10,7 +10,7 @@
             background-color: #deeaf6;
             border: 1px solid #7090ad;
             width: 600px;
-            height: 350px;
+            height: 380px;
         }
         #frm {
             background-color: #ededed;
@@ -19,7 +19,8 @@
             height: 350px;
             vertical-align: middle;
           
-            margin: 20px;
+            margin: auto;
+            margin-top: 20px;
         }
         #tableA {
             margin: 20px;
@@ -29,6 +30,9 @@
             height: 50px;
             background-color: #c5e0b5;
             border: 0px;
+        }
+        .underline .nn {
+            width: 200px;
         }
         .underline {
             border: 1px dashed #747474;
@@ -47,6 +51,7 @@
         #validate {
             visibility:hidden;
         }
+
     </style>
 </head>
 <body>
@@ -55,7 +60,7 @@
             <table id="tableA">
                 <tr>
                     <th>아이디</th>
-                    <td colspan="2"><input type="text" name="jid" class="underline"></td>
+                    <td colspan="2"><input type="text" name="jid" class="underline nn"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -63,7 +68,7 @@
                 </tr>
                 <tr>
                     <th>패스워드</th>
-                    <td colspan="2"><input type="password" name="jpw" class="underline"></td>
+                    <td colspan="2"><input type="password" name="jpw" class="underline nn"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -75,7 +80,7 @@
                 </tr>
                 <tr>
                     <th>패스워드 확인</th>
-                    <td><input type="password" name="jpw2" class="underline"></td>
+                    <td><input type="password" name="jpw2" class="underline nn"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -87,7 +92,7 @@
                 </tr>
                 <tr>
                     <th rowspan="2" style="vertical-align: top;">주소</th>
-                    <td><input type="text" class="underline"></td>
+                    <td><input type="text" class="underline nn"></td>
                     
                 </tr>
                 <tr>
@@ -122,7 +127,7 @@
         // });
 
 
-
+        // 가입 버튼 누르면 작동하면 좋겠다
         $("#frm [type=button]").click(submitHandler);
         function submitHandler(){
             var focusId = $(":focus");
@@ -153,6 +158,7 @@
                 return;
             }
         }
+        // 패스워드 클릭하면 작동되면 좋겠다 
         $("#frm [name=jpw]").click(clickPassword);
         function clickPassword(){
             $("#validate").prop("disabled", true);
@@ -194,6 +200,17 @@
 
         // }
 
+        // 정규식
+        function checkPasword() {
+			// 패스워드 유효성 검사
+			var pw = $("[name=jpw]").val();
+			var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
+			if(!regEx_pwd.test(pw)) {
+				alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
+				$("input.pw").focus();
+				return;
+			}
+        }
 
 
 
