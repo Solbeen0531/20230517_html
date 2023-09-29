@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        #jin {
+            background-color: #deeaf6;
+            border: 1px solid #7090ad;
+            width: 600px;
+            height: 380px;
+        }
+        #frm {
+            background-color: #ededed;
+            border: 1px solid #d0d6dc;
+            width: 400px;
+            height: 350px;
+            vertical-align: middle;
+          
+            margin: auto;
+            margin-top: 20px;
+        }
+        #tableA {
+            margin: 20px;
+        }
+        #accession {
+            width: 283px;
+            height: 50px;
+            background-color: #c5e0b5;
+            border: 0px;
+        }
+        .underline .nn {
+            width: 200px;
+        }
+        .underline {
+            border: 1px dashed #747474;
+            border-width: 0 0 1px 0;
+            width: 100px;
+        }
+        input {
+            background-color: #ededed;
+        }
+        th {
+            text-align: left;
+        }
+        .help {
+            display: none;
+        }
+        .validate {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            $("#jid").blur(function(){
+                if ($("#jid").val() < 1){
+                    $(".jid").css("display", "inline-block");
+               }
+            });
+            $("#jpw").blur(function(){
+                if ($("#jpw").val() < 1){
+                $(".jpw").css("display", "inline-block");
+                }
+            });
+            $("#jpw2").blur(function(){
+                if ($("#jpw2").val() < 1){
+                $(".jpw2").css("display", "inline-block");
+                }
+            });
+            $("#jpw").click(function(){
+                $(".validate").css("display", "table-cell");
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="jin">
+        <form id="frm">
+            <table id="tableA">
+                <tr>
+                    <th>아이디</th>
+                    <td colspan="2"><input type="text" id="jid" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;" class="jid help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>패스워드</th>
+                    <td colspan="2"><input type="password" id="jpw" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;" class="validate">영문자 대/소문자 특수문자, 숫자 포함 8~32자</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;"class="jpw help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>패스워드 확인</th>
+                    <td><input type="password" id="jpw2" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;"class="jpw2 help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td><input type="text" class="underline">@<input type="text" class="underline"></td>
+                </tr>
+                <tr>
+                    <th rowspan="2" style="vertical-align: top;">주소</th>
+                    <td><input type="text" class="underline nn"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" class="underline"></td>
+                </tr>
+                <tr>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="button" value="가입" id="accession"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        // - 사용하지 마세요 var pwdElements
+    </script>
+</body>
+</html>
