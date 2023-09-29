@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <script src="/lesson/resources/js/jquery-3.7.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
         #jin {
             background-color: #deeaf6;
@@ -51,8 +51,25 @@
         #validate {
             visibility:hidden;
         }
-
     </style>
+    <script>
+        window.onload = function(){
+            $("#jid").blur(function(){
+                if ($("#jid").val() < 1){
+                    $("#id-help").prop("disabled", true);
+               }
+            });
+            $("#jpw").blur(function(){
+                $(".validate").prop("disabled", false);
+            });
+            $("#jpw2").blur(function(){
+                
+            });
+            $("#jpw").click(function(){
+                $(".validate").prop("disabled", true);
+            });
+        };
+    </script>
 </head>
 <body>
     <div id="jin">
@@ -72,7 +89,7 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td style="font-size: x-small;" id="validate">영문자 대/소문자 특수문자, 숫자 포함 8~32자</td>
+                    <td style="font-size: x-small;" id="validate" class="validate">영문자 대/소문자 특수문자, 숫자 포함 8~32자</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -108,109 +125,107 @@
         </form>
     </div>
     <script>
-        // $("#accession [type=button]").click(function(){
-
-        //     if ((($("[name=jid]").val()) == "")&&(($("[name=jid]").val()).blur())){
-        //         $("#id-help").prop("disabled", true);
-        //         return;
-        //     }
-        //     if ((($("[name=jpw]").val()) == "")&&(($("[name=jpw]").val()).blur())){
-        //         $("#pw-help").prop("disabled", true);
-        //         return;
-        //     }
-        //     if ((($("[name=jpw2]").val()) == "")&&(($("[name=jpw2]").val()).blur())){
-        //         $("#pw2-help").prop("disabled", true);
-        //         return;
-        //     }
-
-
-        // });
-
-
-        // 가입 버튼 누르면 작동하면 좋겠다
-        $("#frm [type=button]").click(submitHandler);
-        function submitHandler(){
-            var focusId = $(":focus");
-            var id = ($("[name=jid]").val());
-            var pw = $("[name=jpw]").val();
-            var pw2 = $("[name=jpw2]").val();
+        
+        // // 가입 버튼 누르면 작동하면 좋겠다
+        // $("#frm [type=button]").click(submitHandler);
+        // function submitHandler(){
+        //     var id = ($("[name=jid]").val());
+        //     var pw = $("[name=jpw]").val();
+        //     var pw2 = $("[name=jpw2]").val();
             
 
-            if (id.focus() == focusID){
-                if ((id == "")&&(id.blur())){
-                    $("#id-help").prop("disabled", true);
-                   return;
-               }
-               return;
-            }
-            if (pw.focus() == focusID){
-                if ((pw == "")&&(pw.blur())){
-                    $("#pw-help").prop("disabled", true);
-                    return;
-                }
-                return;
-            }
-            if (pw2.focus() == focusID){
-                if ((pw2 == "")&&(pw2.blur())){
-                $("#pw2-help").prop("disabled", true);
-                   return;
-                }
-                return;
-            }
-        }
-        // 패스워드 클릭하면 작동되면 좋겠다 
-        $("#frm [name=jpw]").click(clickPassword);
-        function clickPassword(){
-            $("#validate").prop("disabled", true);
-        }
+        //     if (id.focus(function(){
+        //         if ((id == "")&&(id.blur())){
+        //             $("#id-help").prop("disabled", true);
+        //        }
+        //     }));
 
-        // function validate() {
-        // var objID = document.getElementById("jid");
-        // var objPwd1 = document.getElementById("jpw");
-        // var objPwd2 = document.getElementById("jpw2");
-
-        // if ((objID.value) == ""){
-        //     alert("아이디를 입력하지 않았습니다.");
-        //     objID.focus();
-        //     return false;
-        // }
-        // if ((objPwd1.value) == ""){
-        //     alert("비밀번호를 입력해 주세요");
-        //     objPwd1.focus();
-        //     return false;
-        // }
-        // if ((objPwd2.value=="")){
-        //     alert("비밀번호 확인을 입력해 주세요");
-        //     objPwd2.focus();
-        //     return false;
-        // }
-    
-
-
-        // $("frm [type=submit]").click(submitHandler);
-        // function submitHandler(){
-
-        //     var id = $("[name=jid]").val();
-        //     if (id==""){
-        //         $("[name=jid]").blur();
-        //         alert("필수 입력 항목 입니다");
+            
+        //     if (pw.focus() == focusID){
+        //         if ((pw == "")&&(pw.blur())){
+        //             $("#pw-help").prop("disabled", true);
+        //             return;
+        //         }
         //         return;
-
-
-
+        //     }
+        //     if (pw2.focus() == focusID){
+        //         if ((pw2 == "")&&(pw2.blur())){
+        //         $("#pw2-help").prop("disabled", true);
+        //            return;
+        //         }
+        //         return;
+        //     }
+        // }
+        // // 패스워드 클릭하면 작동되면 좋겠다 
+        // $("#frm [name=jpw]").click(clickPassword);
+        // function clickPassword(){
+        //     $("#validate").prop("disabled", true);
         // }
 
-        // 정규식
-        function checkPasword() {
-			// 패스워드 유효성 검사
-			var pw = $("[name=jpw]").val();
-			var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
-			if(!regEx_pwd.test(pw)) {
-				alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
-				$("input.pw").focus();
-				return;
-			}
-        }
+
+
+        // // 정규식
+        // function checkPasword() {
+		// 	// 패스워드 유효성 검사
+		// 	var pw = $("[name=jpw]").val();
+		// 	var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
+		// 	if(!regEx_pwd.test(pw)) {
+		// 		alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
+		// 		$("input.pw").focus();
+		// 		return;
+		// 	}
+        // }
+
+
+        // // 가입 버튼 누르면 작동하면 좋겠다
+        // $("#frm [type=button]").click(submitHandler);
+        // function submitHandler(){
+        //     var id = ($("[name=jid]").val());
+        //     var pw = $("[name=jpw]").val();
+        //     var pw2 = $("[name=jpw2]").val();
+            
+
+        //     if (id.focus() == focusID){
+        //         if ((id == "")&&(id.blur())){
+        //             $("#id-help").prop("disabled", true);
+        //            return;
+        //        }
+        //        return;
+        //     }
+        //     if (pw.focus() == focusID){
+        //         if ((pw == "")&&(pw.blur())){
+        //             $("#pw-help").prop("disabled", true);
+        //             return;
+        //         }
+        //         return;
+        //     }
+        //     if (pw2.focus() == focusID){
+        //         if ((pw2 == "")&&(pw2.blur())){
+        //         $("#pw2-help").prop("disabled", true);
+        //            return;
+        //         }
+        //         return;
+        //     }
+        // }
+        // // 패스워드 클릭하면 작동되면 좋겠다 
+        // $("#frm [name=jpw]").click(clickPassword);
+        // function clickPassword(){
+        //     $("#validate").prop("disabled", true);
+        // }
+
+
+
+        // // 정규식
+        // function checkPasword() {
+		// 	// 패스워드 유효성 검사
+		// 	var pw = $("[name=jpw]").val();
+		// 	var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
+		// 	if(!regEx_pwd.test(pw)) {
+		// 		alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
+		// 		$("input.pw").focus();
+		// 		return;
+		// 	}
+        // }
 
 
 
