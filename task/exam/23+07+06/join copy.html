@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        #jin {
+            background-color: #deeaf6;
+            border: 1px solid #7090ad;
+            width: 600px;
+            height: 380px;
+        }
+        #frm {
+            background-color: #ededed;
+            border: 1px solid #d0d6dc;
+            width: 400px;
+            height: 350px;
+            vertical-align: middle;
+          
+            margin: auto;
+            margin-top: 20px;
+        }
+        #tableA {
+            margin: 20px;
+        }
+        #accession {
+            width: 283px;
+            height: 50px;
+            background-color: #c5e0b5;
+            border: 0px;
+        }
+        .underline .nn {
+            width: 200px;
+        }
+        .underline {
+            border: 1px dashed #747474;
+            border-width: 0 0 1px 0;
+            width: 100px;
+        }
+        input {
+            background-color: #ededed;
+        }
+        th {
+            text-align: left;
+        }
+        .help {
+            display: none;
+        }
+        .validate {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            $("#jid").blur(function(){
+                if ($("#jid").val().length < 1){
+                    $(".jid").css("display", "inline-block");
+               }
+            });
+            $("#jpw").blur(function(){
+                if ($("#jpw").val().length < 1){
+                $(".jpw").css("display", "inline-block");
+                }
+            });
+            $("#jpw2").blur(function(){
+                if ($("#jpw2").val().length < 1){
+                $(".jpw2").css("display", "inline-block");
+                }
+            });
+            $("#jpw").click(function(){
+                $(".validate").css("display", "table-cell");
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="jin">
+        <form id="frm">
+            <table id="tableA">
+                <tr>
+                    <th>아이디</th>
+                    <td colspan="2"><input type="text" id="jid" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;" class="jid help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>패스워드</th>
+                    <td colspan="2"><input type="password" id="jpw" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;" class="validate">영문자 대/소문자 특수문자, 숫자 포함 8~32자</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;"class="jpw help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>패스워드 확인</th>
+                    <td><input type="password" id="jpw2" class="underline nn"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-size: x-small;"class="jpw2 help">필수 입력 항목 입니다</td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td><input type="text" class="underline">@<input type="text" class="underline"></td>
+                </tr>
+                <tr>
+                    <th rowspan="2" style="vertical-align: top;">주소</th>
+                    <td><input type="text" class="underline nn"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" class="underline"></td>
+                </tr>
+                <tr>
+                    <td><p></p></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><input type="button" value="가입" id="accession"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        
+        // // 가입 버튼 누르면 작동하면 좋겠다
+        // $("#frm [type=button]").click(submitHandler);
+        // function submitHandler(){
+        //     var id = ($("[name=jid]").val());
+        //     var pw = $("[name=jpw]").val();
+        //     var pw2 = $("[name=jpw2]").val();
+            
+
+        //     if (id.focus(function(){
+        //         if ((id == "")&&(id.blur())){
+        //             $("#id-help").prop("disabled", true);
+        //        }
+        //     }));
+
+            
+        //     if (pw.focus() == focusID){
+        //         if ((pw == "")&&(pw.blur())){
+        //             $("#pw-help").prop("disabled", true);
+        //             return;
+        //         }
+        //         return;
+        //     }
+        //     if (pw2.focus() == focusID){
+        //         if ((pw2 == "")&&(pw2.blur())){
+        //         $("#pw2-help").prop("disabled", true);
+        //            return;
+        //         }
+        //         return;
+        //     }
+        // }
+        // // 패스워드 클릭하면 작동되면 좋겠다 
+        // $("#frm [name=jpw]").click(clickPassword);
+        // function clickPassword(){
+        //     $("#validate").prop("disabled", true);
+        // }
+
+
+
+        // // 정규식
+        // function checkPasword() {
+		// 	// 패스워드 유효성 검사
+		// 	var pw = $("[name=jpw]").val();
+		// 	var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
+		// 	if(!regEx_pwd.test(pw)) {
+		// 		alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
+		// 		$("input.pw").focus();
+		// 		return;
+		// 	}
+        // }
+
+
+        // // 가입 버튼 누르면 작동하면 좋겠다
+        // $("#frm [type=button]").click(submitHandler);
+        // function submitHandler(){
+        //     var id = ($("[name=jid]").val());
+        //     var pw = $("[name=jpw]").val();
+        //     var pw2 = $("[name=jpw2]").val();
+            
+
+        //     if (id.focus() == focusID){
+        //         if ((id == "")&&(id.blur())){
+        //             $("#id-help").prop("disabled", true);
+        //            return;
+        //        }
+        //        return;
+        //     }
+        //     if (pw.focus() == focusID){
+        //         if ((pw == "")&&(pw.blur())){
+        //             $("#pw-help").prop("disabled", true);
+        //             return;
+        //         }
+        //         return;
+        //     }
+        //     if (pw2.focus() == focusID){
+        //         if ((pw2 == "")&&(pw2.blur())){
+        //         $("#pw2-help").prop("disabled", true);
+        //            return;
+        //         }
+        //         return;
+        //     }
+        // }
+        // // 패스워드 클릭하면 작동되면 좋겠다 
+        // $("#frm [name=jpw]").click(clickPassword);
+        // function clickPassword(){
+        //     $("#validate").prop("disabled", true);
+        // }
+
+
+
+        // // 정규식
+        // function checkPasword() {
+		// 	// 패스워드 유효성 검사
+		// 	var pw = $("[name=jpw]").val();
+		// 	var regEx_pwd = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!_#])[A-Za-z0-9!_#]{8,32}$/;
+		// 	if(!regEx_pwd.test(pw)) {
+		// 		alert("패스워드를 영문자 대/소문자, 특수문자, 숫자 포함 8~32자 입력해주세요.");
+		// 		$("input.pw").focus();
+		// 		return;
+		// 	}
+        // }
+
+
+
+    </script>
+</body>
+</html>
